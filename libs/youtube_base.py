@@ -8,7 +8,7 @@ from configs.config import GOOGLE_LOGIN, SEARCH_CHANNEL_NAME
 
 
 class YoutubeBase:
-    def __init__(self, base_url, incognito=False, headless=False):
+    def __init__(self, base_url, incognito, headless):
         self.base_url = base_url
         self.google_url = GOOGLE_LOGIN
         self.channel_name = SEARCH_CHANNEL_NAME
