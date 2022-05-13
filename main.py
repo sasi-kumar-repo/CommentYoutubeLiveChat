@@ -39,9 +39,9 @@ class YoutubeAPI(YoutubeBase):
         print("Commenting on Live Chat.....")
         if infinite:
             while True:
-                number = randint(0, len(self.word_list)-1)
+                number = randint(0, len(self.word_list) - 1)
                 self.input_text_on_the_live_chat(self.word_list[number])
-                time.sleep(15)
+                time.sleep(100)
         else:
             number = randint(0, len(self.word_list) - 1)
             self.input_text_on_the_live_chat(self.word_list[number])

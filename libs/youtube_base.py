@@ -10,8 +10,8 @@ from configs.config import ConfigBase
 class YoutubeBase:
     def __init__(self, incognito, headless):
         self.config = ConfigBase()
-        self.base_url = self.config.get("url", "YOUTUBE_BASE_URL")
-        self.google_url = self.config.get("url", "GOOGLE_LOGIN")
+        self.base_url = self.config.get("urls", "base_url")
+        self.google_url = self.config.get("urls", "google_login")
         self.channel_name = self.config.get("channels", "channel_name")
         self.sel = SeleniumBase()
         options = self.sel.get_web_driver_options()
@@ -67,10 +67,10 @@ class YoutubeBase:
         """
         self.driver.delete_all_cookies()
         self.driver.get(self.google_url)
-        time.sleep(2)
+        time.sleep(5)
         self.driver.find_element(self.email_field[0], self.email_field[1]).send_keys(email)
         self.driver.find_element(self.next_btn[0], self.next_btn[1]).click()
-        time.sleep(2)
+        time.sleep(5)
         self.driver.find_element(self.password_field[0], self.password_field[1]).send_keys(password)
         self.driver.find_element(self.next_btn[0], self.next_btn[1]).click()
         time.sleep(8)
