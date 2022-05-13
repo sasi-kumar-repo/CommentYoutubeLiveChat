@@ -4,14 +4,15 @@ import time
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from libs.selenium_base import SeleniumBase
-from configs.config import GOOGLE_LOGIN, SEARCH_CHANNEL_NAME
+from configs.config import ConfigBase
 
 
 class YoutubeBase:
-    def __init__(self, base_url, incognito, headless):
-        self.base_url = base_url
-        self.google_url = GOOGLE_LOGIN
-        self.channel_name = SEARCH_CHANNEL_NAME
+    def __init__(self, incognito, headless):
+        self.config = ConfigBase()
+        self.base_url = self.config.get("url", "YOUTUBE_BASE_URL")
+        self.google_url = self.config.get("url", "GOOGLE_LOGIN")
+        self.channel_name = self.config.get("channels", "channel_name")
         self.sel = SeleniumBase()
         options = self.sel.get_web_driver_options()
         if headless:

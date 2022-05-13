@@ -5,16 +5,15 @@ import time
 import pytchat
 from random import randint
 from libs.youtube_base import YoutubeBase
-from configs.config import YOUTUBE_BASE_URL, USER, PASSWORD, WORD_LIST, AUTHOR
 
 
 class YoutubeAPI(YoutubeBase):
-    def __init__(self, base_url, incognito=False, headless=False):
-        super().__init__(base_url=base_url, incognito=incognito, headless=headless)
-        self.user = USER
-        self.author = AUTHOR
-        self.passcode = PASSWORD
-        self.word_list = WORD_LIST
+    def __init__(self, incognito=False, headless=False):
+        super().__init__(incognito=incognito, headless=headless)
+        self.user = self.config.get("login", "username")
+        self.author = self.config.get("author", "name")
+        self.passcode = self.config.get("login", "password")
+        self.word_list = self.config.get("wordlist", "comments")
         self.locators()
 
     def comment_on_a_live_chat(self):
@@ -67,5 +66,5 @@ class YoutubeAPI(YoutubeBase):
 
 
 if __name__ == "__main__":
-    youtube_app = YoutubeAPI(YOUTUBE_BASE_URL)
+    youtube_app = YoutubeAPI()
     youtube_app.comment_on_a_live_chat()

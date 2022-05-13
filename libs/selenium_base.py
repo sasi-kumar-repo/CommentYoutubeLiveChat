@@ -1,3 +1,5 @@
+__author__ = "Sasi Kumar"
+
 import undetected_chromedriver.v2 as uc
 from selenium.webdriver.support.wait import WebDriverWait
 
