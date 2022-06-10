@@ -35,7 +35,7 @@ class YoutubeBase:
         self.search_box = [By.XPATH, "//input[@id='search']"]
         self.search_button = [By.XPATH, "//button[@id='search-icon-legacy']"]
         self.live_now = [By.XPATH, "//a[contains(text(), '{0}')]/../../../../../..//"
-                                   "span[contains(text(), 'LIVE NOW')]".format(self.channel_name)]
+                                   "span[contains(text(), 'LIVE')]".format(self.channel_name)]
         self.youtube_like_button = [By.XPATH, "(//div[@id='top-level-buttons-computed']//button[@id='button'])[1]"]
         self.chat_input_field = [By.XPATH, "//div[@id='input']"]
 
