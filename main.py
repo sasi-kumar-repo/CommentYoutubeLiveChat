@@ -29,6 +29,7 @@ class YoutubeAPI(YoutubeBase):
                                                                                    ". Please try again later")
         self.switch_to_live_chat_frame(self.live_chat_frame)
         self.make_random_chats(infinite=True)
+        # Comment the above line to run the below line
         # self.comment_after_someone_reply(live_video_url)
 
     def make_random_chats(self, infinite=False):
